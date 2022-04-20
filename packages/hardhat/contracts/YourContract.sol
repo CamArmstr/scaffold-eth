@@ -15,7 +15,8 @@ contract YourContract {
     // what should we do on deploy?
   }
 
-  function setPurpose(string memory newPurpose) public {
+  function setPurpose(string memory newPurpose) public payable {
+      require(msg.value>=100, "Not enough bitch");
       purpose = newPurpose;
       console.log(msg.sender,"set purpose to",purpose);
       emit SetPurpose(msg.sender, purpose);
